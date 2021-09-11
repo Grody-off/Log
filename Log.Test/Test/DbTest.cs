@@ -29,6 +29,14 @@ namespace Log.Test
                 collection.DeleteOne(d);
             }
         }
-        
+        [Fact]
+        public void WriteNull()
+        {
+            //Arrange
+            var dl = new DbLog();
+ 
+            //Act & Asserts
+            Assert.Throws<ArgumentNullException>(() => dl.Log(null));
+        }
     }
 }

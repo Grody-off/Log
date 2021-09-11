@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Linq;
 using Xunit;
@@ -33,6 +34,16 @@ namespace Log.Test
             
             //Asserts
             Assert.Equal(errMessage, lastLine);
+        }
+        
+        [Fact]
+        public void WriteNull()
+        {
+            //Arrange
+            var fl = new FileLog();
+ 
+            //Act & Asserts
+            Assert.Throws<ArgumentNullException>(() => fl.Log(null));
         }
     }
 }

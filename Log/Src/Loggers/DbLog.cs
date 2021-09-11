@@ -16,6 +16,10 @@ namespace Log
         }
         public void Log(string err)
         {
+            if (string.IsNullOrEmpty(err))
+            {
+                throw new ArgumentNullException(err,"Error message can not be null or empty");
+            }
             var collection = GetCollection();
             var document = new BsonDocument
             {
