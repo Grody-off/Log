@@ -1,3 +1,4 @@
+using System;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -19,7 +20,8 @@ namespace Log
             var document = new BsonDocument
             {
                 { "name", "Error" },
-                { "Error_message", err }
+                { "Error_message", err },
+                {"Date",new BsonDateTime(DateTime.Now)}
             };
             collection.InsertOne(document);
         }

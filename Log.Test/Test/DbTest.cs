@@ -26,6 +26,7 @@ namespace Log.Test
             {
                 d.TryGetElement("Error_message", out var actual);
                 Assert.Equal(expected, actual);
+                collection.DeleteOne(d);
             }
         }
         
